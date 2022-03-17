@@ -1,0 +1,109 @@
+def getAccount(index: int = 0):
+    if network.show_active() == "development":
+        return accounts[index]
+    else:
+        return accounts.add(config["wallets"]["from_key"])
+
+account_admin = getAccount(0) 
+account_comum1 = getAccount(1)
+account_comum2 = getAccount(2)
+account_comum3 = getAccount(3) 
+
+sc_Object = CrowdFunding.deploy({"from": account_admin})
+
+transaction = None
+ValorAlvo = 10
+Inicio = "2022-03-17"
+Termino = "2022-03-20"
+
+transaction = sc_Object.MeuUsuario_CadastrarNovoUsuario("Ricardo Comum", {"from": account_comum1})
+transaction = sc_Object.MeuUsuario_CadastrarNovoUsuario("Murch", {"from": account_admin})
+transaction = None
+
+ret = sc_Object.getValor()
+
+camp = sc_Object.ADMIN_Campanha_CadastrarNovaCampanha("CampanhaX", account_comum1, ValorAlvo, Inicio, Termino, {"from": account_admin})
+
+
+ret2 = sc_Object.internal_campanha_cadastrar2(account_comum1)
+
+
+ret3 = internal_campanha_cadastrar.internal_campanha_cadastrar2(account_comum1)
+ret = sc_Object.getArray_Campanhas()
+ret = sc_Object.getArray_Users()
+
+
+
+---
+
+
+transaction = sc_Object.MeuUsuario_CadastrarNovoUsuario("Ricardo Comum", {"from": account_comum1})
+transaction = sc_Object.MeuUsuario_CadastrarNovoUsuario("Marcelo Admin", {"from": account_admin})
+transaction = sc_Object.ADMIN_Usuario_CadastrarNovoUsuario("Joao Comum", account_comum2, {"from": account_admin})
+transaction1 = sc_Object.ADMIN_Usuario_CadastrarNovoUsuario("Antonio Comum", account_comum3, {"from": account_admin})
+transaction = sc_Object.ADMIN_Usuario_ApagarUsuarioPorEndereco(account_comum2, {"from": account_admin})
+
+
+transaction = None
+ValorAlvo = 10
+Inicio = "2022-03-10"
+Termino = "2022-03-15"
+
+transaction = sc_Object.ADMIN_Campanha_CadastrarNovaCampanha("CampanhaX", account_comum3, ValorAlvo, Inicio, Termino, {"from": account_admin})
+transaction = sc_Object.ADMIN_Campanha_CadastrarNovaCampanha("CampanhaX", account_comum3, ValorAlvo, "2022-03-05", "2022-03-12", {"from": account_admin})
+
+
+
+
+
+
+ret = sc_Object.dt_getBlockTimeStampFromDate("2028-12-31 02:45:46")
+ret = sc_Object.dt_getNowComValor(1861843546)
+ret = sc_Object.dt_getNow()
+ret = sc_Object.dt_getblockTime()
+ret = sc_Object.getArray_Campanhas()
+
+
+
+
+
+
+transaction = sc_Object.MeuUsuario_CadastrarNovoUsuario("Ricardo Comum", {"from": account_comum1})
+transaction = sc_Object.MeuUsuario_CadastrarNovoUsuario("Marcelo Admin", {"from": account_admin})
+transaction = sc_Object.ADMIN_Usuario_CadastrarNovoUsuario("Joao Comum", account_comum2, {"from": account_admin})
+transaction1 = sc_Object.ADMIN_Usuario_CadastrarNovoUsuario("Antonio Comum", account_comum3, {"from": account_admin})
+transaction = sc_Object.ADMIN_Usuario_ApagarUsuarioPorEndereco(account_comum2, {"from": account_admin})
+
+user = sc_Object.ADMIN_Usuario_PesquisarPorEndereco(account_comum2, {"from": account_admin})
+User = sc_Object.ADMIN_Usuario_PesquisarPorEndereco(account_comum2, {"from": account_comum1})
+
+
+
+ret = sc_Object.getArray_Users()
+
+ret = sc_Object.getValor()
+
+ret = sc_Object.dt_getNowComValor()
+
+ret = sc_Object.dt_getblockTime()
+
+ret = sc_Object.dt_getBlockTimeStampFromDate()
+
+
+transaction = sc_Object.cadastrarQualquerUsuario("Joao", 18, account_comum1)
+
+transaction = sc_Object.setPerfilForUsuario(1, account_admin)
+
+transaction = sc_Object.setPerfilForUsuario(1, account_comum1)
+
+transaction = sc_Object.setPerfilForUsuario(0, account_comum1)
+
+
+ret = sc_Object.getValor()
+
+
+ret = sc_Object.getArray_Log_PerfilChangeEvent()
+
+ret2 = sc_Object.consultaLogAlteracoesPerfilUsuario(account_comum1)
+
+ret2

@@ -275,9 +275,8 @@ contract CrowdFunding is DateTime
         require(id > 0, "Usuario nao cadastrado");        
         _;
     }        
-
     
-
+    // impete ataques de reentrancia
     modifier noReentrancy() 
     {
         require(!reentrancy_locked, "No reentrancy");

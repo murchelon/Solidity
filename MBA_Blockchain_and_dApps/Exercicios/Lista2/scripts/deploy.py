@@ -1,5 +1,5 @@
 
-from brownie import accounts, config, SimpleStorage, network
+from brownie import accounts, config, Lista2_Ex1, Lista1_Ex6, network
 
 # brownie networks add Ethereum ganache-local host=http://127.0.0.1:7545 chainid=5777
 # brownie run scripts/deploy.py --network ganache-local
@@ -15,7 +15,7 @@ def getAccount():
     else:
         return accounts.add(config["wallets"]["from_key"])
 
-def deploy_simple_storage():
+def deploy_Lista1_Ex6():
 
     print("Obtendo a conta...")
     account = getAccount()
@@ -25,23 +25,24 @@ def deploy_simple_storage():
     # print(account)
     
     print("Realizando deploy...")
-    sc_SimpleStorage = SimpleStorage.deploy({"from": account})
-    # print(sc_SimpleStorage)
+    sc_Object = Lista1_Ex6.deploy({"from": account})
+    # print(sc_Object)
 
-    print("Valor Inicial:")
-    stored_value = sc_SimpleStorage.retrieve()
-    print(stored_value)
+def deploy_Lista2_Ex1():
 
-    print("Efetuando alteracao...")
-    transaction = sc_SimpleStorage.store(15, {"from": account})
-    transaction.wait(1)
+    print("Obtendo a conta...")
+    account = getAccount()
+    # account = accounts.add(config["wallets"]["from_key"])
 
-    print("Valor atualizado:")
-    updated_stored_value = sc_SimpleStorage.retrieve()
-    print(updated_stored_value)
-
+    # print("Account:")
+    # print(account)
+    
+    print("Realizando deploy...")
+    sc_Object = Lista2_Ex1.deploy({"from": account})
+    # print(sc_Object)
 
 
 def main():
-    deploy_simple_storage()
+    # deploy_Lista1_Ex6()
+    deploy_Lista2_Ex1()
     print("Fim do deploy")
